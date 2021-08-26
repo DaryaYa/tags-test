@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag Manager</title>
+</head>
+
+<body>
+  <h1>Tag Adder</h1>
+ <input type="checkbox" id="freeze" name="freeze" class="freeze">
+ <label for="freeze">Read Only Mode</label>
+  <div class="wrapper">
+    <form>
+      <div class="wrapper-input">
+        <label for="uname">Add a tag here:</label>
+        <input type="text" id="uname" class="input" name="name"  placeholder="one word">
+        <button class="add">Add a Tag</button>
+        <span>Please write multiple tags using a comma (" , ").</span>
+      </div>
+      <div class="tags"></div>
+
+    </form>
+  </div>
+  <button class="save" type="button">SAVE LIST</button>
+  <button class="get" type="button">GET LAST SAVED LIST</button>
+</body>
+
+</html>

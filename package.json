@@ -1,0 +1,35 @@
+{
+  "name": "tags",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.2.1",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "cross-env NODE_ENV='production' && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaryaYa/tags.git"
+  },
+  "author": "me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaryaYa/tags/issues"
+  },
+  "homepage": "https://github.com/DaryaYa/tags#readme"
+}
