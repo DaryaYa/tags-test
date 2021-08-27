@@ -10,14 +10,14 @@ const button = document.querySelector(".add"),
 
 const mapArray = (array) => {
   array.map((el) => {
-    let tag = document.createElement('div');
+    let tag = document.createElement("div");
     let cross = document.createElement("button");
-    tag.classList.add('tag')
+    tag.classList.add("tag");
     cross.classList.add("cross");
     cross.textContent = "x";
     cross.addEventListener("click", (e) => {
       e.preventDefault();
-      e.target.closest("div").remove();    
+      e.target.closest("div").remove();
     });
     tag.append(el);
     tag.append(cross);
@@ -27,13 +27,10 @@ const mapArray = (array) => {
 
 const addValue = (e) => {
   e.preventDefault();
-  const tagValues = (input.value).split(",");
-  console.log(tagValues)
+  const tagValues = input.value.split(",");
   mapArray(tagValues);
   input.value = null;
 };
-
-button.addEventListener("click", addValue);
 
 readOnly.addEventListener("change", () => {
   const crossList = document.querySelectorAll(".cross");
@@ -52,27 +49,26 @@ readOnly.addEventListener("change", () => {
 
 const saveList = () => {
   const tagList = document.querySelectorAll(".tag");
-  let arr =[];
+  let arr = [];
   for (let i = 0; i < tagList.length; i++) {
     let item = tagList[i].innerText.slice(0, -1);
-    console.log(item)
     arr.push(item);
   }
-  console.log(arr);
-  localStorage.setItem('tagList', arr);
-}
+  localStorage.setItem("tagList", arr);
+};
 
 const getList = () => {
- tags.innerHTML = null;
-  input.value = localStorage.getItem('tagList');
-  const tagValues = (input.value).split(",");
+  tags.innerHTML = null;
+  input.value = localStorage.getItem("tagList");
+  const tagValues = input.value.split(",");
   mapArray(tagValues);
   if (readOnly.checked) {
     const crossList = document.querySelectorAll(".cross");
     crossList.forEach((el) => (el.disabled = true));
   }
   input.value = null;
-}
+};
 
+button.addEventListener("click", addValue);
 save.addEventListener("click", saveList);
 get.addEventListener("click", getList);
