@@ -10,13 +10,14 @@
 
 <body>
   <h1>Tag Adder</h1>
- <input type="checkbox" id="freeze" name="freeze" class="freeze">
- <label for="freeze">Read Only Mode</label>
+  <label for="freeze" class="label-freeze">read only mode</label>
+  <input type="checkbox" id="freeze" name="freeze" class="freeze">
+  
   <div class="wrapper">
     <form>
       <div class="wrapper-input">
         <label for="uname">Add a tag here:</label>
-        <input type="text" id="uname" class="input" name="name"  placeholder="one word">
+        <input type="text" id="uname" class="input" name="name" placeholder="one word">
         <button class="add">Add a Tag</button>
         <span>Please write multiple tags using a comma (" , ").</span>
       </div>
@@ -24,8 +25,10 @@
 
     </form>
   </div>
-  <button class="save" type="button">SAVE LIST</button>
-  <button class="get" type="button">GET LAST SAVED LIST</button>
+  <div class="buttons">
+    <button class="save" type="button">SAVE LIST</button>
+    <button class="get" type="button">GET LAST SAVED LIST</button>
+  </div>
 </body>
 
 </html>

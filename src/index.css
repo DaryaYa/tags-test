@@ -1,3 +1,56 @@
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: antiquewhite;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.wrapper {
+  margin-top: 1em;
+}
+
+.freeze {
+  visibility: hidden;
+}
+
+.label-freeze {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+.label-freeze:hover {
+  cursor: pointer;
+}
+
 .cross {
   width: fit-content;
+}
+
+.add {
+  background-color:rgb(248, 210, 161);
+}
+
+.tags {
+  border: 2px solid brown;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+}
+
+.buttons {
+  margin-top: 1em;
+}
+
+.save {
+  background-color: green;
+  height: 2em;
+  color: antiquewhite;
+}
+
+.get {
+  background-color: brown;
+  height: 2em;
+  color: antiquewhite;
 }

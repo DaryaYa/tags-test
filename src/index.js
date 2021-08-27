@@ -4,6 +4,7 @@ const button = document.querySelector(".add"),
   input = document.querySelector(".input"),
   tags = document.querySelector(".tags"),
   readOnly = document.querySelector(".freeze"),
+  freeze = document.querySelector(".label-freeze"),
   save = document.querySelector(".save"),
   get = document.querySelector(".get");
 
@@ -22,7 +23,7 @@ const mapArray = (array) => {
     tag.append(cross);
     tags.append(tag);
   });
-}
+};
 
 const addValue = (e) => {
   e.preventDefault();
@@ -39,9 +40,13 @@ readOnly.addEventListener("change", () => {
   if (readOnly.checked) {
     button.disabled = true;
     crossList.forEach((el) => (el.disabled = true));
+    freeze.style.color = "darkred";
+    freeze.style.border = "3px solid darkred";
   } else {
     button.disabled = false;
     crossList.forEach((el) => (el.disabled = false));
+    freeze.style.color = "black";
+    freeze.style.border = "none";
   }
 });
 
@@ -58,11 +63,14 @@ const saveList = () => {
 }
 
 const getList = () => {
- // localStorage.;
  tags.innerHTML = null;
   input.value = localStorage.getItem('tagList');
   const tagValues = (input.value).split(",");
   mapArray(tagValues);
+  if (readOnly.checked) {
+    const crossList = document.querySelectorAll(".cross");
+    crossList.forEach((el) => (el.disabled = true));
+  }
   input.value = null;
 }
 
