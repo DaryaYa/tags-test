@@ -26,6 +26,7 @@ button:hover {
 
 .cross {
   width: fit-content;
+  margin-left: .5em;
 }
 
 .add {
@@ -37,6 +38,10 @@ button:hover {
   border-radius: 5px;
   margin-top: 1em;
   padding: 0.5em 1em;
+}
+
+.tag {
+  background-color: bisque;
 }
 
 .buttons {

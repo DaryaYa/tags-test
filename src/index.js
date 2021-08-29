@@ -6,9 +6,9 @@ const button = document.querySelector(".add"),
   readOnly = document.querySelector(".freeze"),
   freeze = document.querySelector(".label-freeze"),
   save = document.querySelector(".save"),
-  get = document.querySelector(".get");
+  get = document.querySelector(".get");             
 
-const mapArray = (array) => {
+const mapArray = (array) => { // render a list of tags from an array
   array.map((el) => {
     let tag = document.createElement("div");
     let cross = document.createElement("button");
@@ -25,16 +25,9 @@ const mapArray = (array) => {
   });
 };
 
-const addValue = (e) => {
-  e.preventDefault();
-  const tagValues = input.value.split(",");
-  mapArray(tagValues);
-  input.value = null;
-};
-
-readOnly.addEventListener("change", () => {
+const switchMode = (boolean) => {
   const crossList = document.querySelectorAll(".cross");
-  if (readOnly.checked) {
+   if (boolean) {
     button.disabled = true;
     crossList.forEach((el) => (el.disabled = true));
     freeze.style.color = "darkred";
@@ -45,6 +38,17 @@ readOnly.addEventListener("change", () => {
     freeze.style.color = "black";
     freeze.style.border = "none";
   }
+}
+
+const addValue = (e) => {
+  e.preventDefault();
+  const tagValues = input.value.split(",");
+  mapArray(tagValues);
+  input.value = null;
+};
+
+readOnly.addEventListener("change", () => { // readOnly mode switcher 
+  switchMode(readOnly.checked);
 });
 
 const saveList = () => {
@@ -69,6 +73,32 @@ const getList = () => {
   input.value = null;
 };
 
+let allTags = {
+
+  get savedTags() {
+    return localStorage.getItem("tagList");
+  },
+
+  set tagsToStorage(array) {
+    return localStorage.setItem("tagList", array);
+  },
+
+  addTag(value) {
+   return mapArray(value);
+  },
+
+  readOnlyMode(boolean) {
+    switchMode(boolean);
+  }, 
+  
+}; 
+
 button.addEventListener("click", addValue);
 save.addEventListener("click", saveList);
 get.addEventListener("click", getList);
+
+// console.log(allTags.savedTags);
+// console.log(allTags.tagsToStorage = 'day, was, nice');
+// allTags.addTag(['hello!', 'my', 'dear', 'friend']);
+// allTags.readOnlyMode(true);
+
